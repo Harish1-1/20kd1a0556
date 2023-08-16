@@ -1,0 +1,14 @@
+const axios = require("axios");
+const routing = require("express").Router();
+
+routing.route("/").get((request, response) => {
+  const head = {
+    authorization:
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTIxOTk2MzksImNvbXBhbnlOYW1lIjoiVHJhaW4gQ2VudHJhbCIsImNsaWVudElEIjoiN2E5YTdhMTMtMGM3My00NWRmLTkzMTEtYTNhZjdkODFhOTdiIiwib3duZXJOYW1lIjoiIiwib3duZXJFbWFpbCI6IiIsInJvbGxObyI6IjU2In0.VC4gUfjKia4jDHlMMBbSqEVd9oNjottMKpH_HmXlzHI",
+  };
+  const url = "http://20.244.56.144/train/trains";
+  const data = axios
+    .get(url, { head })
+    .then((result) => response.json(result.data))
+    .catch((error) => console.log("error occured"));
+});
