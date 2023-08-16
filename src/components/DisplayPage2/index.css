@@ -1,0 +1,7 @@
+.container1 {
+  display: flex;
+  flex: column;
+  height: 20vh;
+  justify-content: center;
+  text-align: center;
+}
